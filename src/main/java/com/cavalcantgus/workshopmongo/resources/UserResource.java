@@ -1,15 +1,15 @@
 package com.cavalcantgus.workshopmongo.resources;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cavalcantgus.workshopmongo.domain.User;
+import com.cavalcantgus.workshopmongo.services.UserService;
 
 
 @RestController // Controlador Rest da entidade User
@@ -17,15 +17,13 @@ import com.cavalcantgus.workshopmongo.domain.User;
 
 public class UserResource {
 	
+	@Autowired
+	private UserService userService;
+	
 	// Mapeia solicitações HTTP GET retornando todos os usuários
 	@GetMapping
 	public ResponseEntity<List<User>> findAll(){
-		User user = new User("1", "Maria Brown", "maria@gmail.com");
-		User user2 = new User("2", "Alex Green", "alex@gmail.com");
-		
-		List<User> list = new ArrayList<>();
-		list.addAll(Arrays.asList(user, user2));
-		
+		List<User> list = userService.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
