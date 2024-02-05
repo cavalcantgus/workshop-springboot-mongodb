@@ -35,6 +35,12 @@ public class UserService {
 		return userRepository.insert(obj);
 	}
 	
+	// Método para deletar um usuário
+	public void delete(String id) {
+		findById(id);
+		userRepository.deleteById(id);
+	}
+	
 	// Converte um UserDTO para User
 	public User fromDTO(UserDTO objDto) {
 		return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
