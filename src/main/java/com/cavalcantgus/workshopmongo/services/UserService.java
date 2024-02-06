@@ -41,6 +41,18 @@ public class UserService {
 		userRepository.deleteById(id);
 	}
 	
+	// Método para atualizar dados de um usuário
+	public User update(User obj) {
+		User newObj = findById(obj.getId()); // Novo objeto User recebe o os dados do usuário anterior no banco de dados
+		updateData(newObj, obj); // Chama o método para atualizar os dados dos atributos de User
+		return userRepository.save(newObj); // Salva o novo usuário no banco de dados
+	}
+	
+	private void updateData(User newObj, User obj) {
+		newObj.setName(obj.getName()); // Atualiza o nome do usuário
+		newObj.setEmail(obj.getEmail()); // Atualiza o email do usuário
+	}
+
 	// Converte um UserDTO para User
 	public User fromDTO(UserDTO objDto) {
 		return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
