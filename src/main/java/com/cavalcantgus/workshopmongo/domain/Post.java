@@ -6,6 +6,8 @@ import java.util.Objects;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.cavalcantgus.workshopmongo.dto.AuthorDTO;
+
 // Entidade Post
 @Document
 public class Post {
@@ -15,13 +17,13 @@ public class Post {
 	private Date date;
 	private String title;
 	private String subtitle;
-	private User author;
+	private AuthorDTO author;
 	
 	// Construtor padrão
 	public Post() {}
 
 	// Construtor com argumentos
-	public Post(String id, Date date, String title, String subtitle, User author) {
+	public Post(String id, Date date, String title, String subtitle, AuthorDTO author) {
 		this.id = id;
 		this.date = date;
 		this.title = title;
@@ -62,11 +64,11 @@ public class Post {
 		this.subtitle = subtitle;
 	}
 	
-	public User getAuthor() {
+	public AuthorDTO getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(User author) {
+	public void setAuthor(AuthorDTO author) {
 		this.author = author;
 	}
 
