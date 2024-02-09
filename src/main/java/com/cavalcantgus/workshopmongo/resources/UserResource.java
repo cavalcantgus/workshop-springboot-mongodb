@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.cavalcantgus.workshopmongo.domain.Post;
 import com.cavalcantgus.workshopmongo.domain.User;
 import com.cavalcantgus.workshopmongo.dto.UserDTO;
 import com.cavalcantgus.workshopmongo.services.UserService;
@@ -69,5 +70,12 @@ public class UserResource {
 		obj.setId(id);
 		obj = userService.update(obj); // Atualiza os dados do usuário
 		return ResponseEntity.noContent().build(); 
+	}
+	
+	// Mapeia solicitações HTTP GET para a busca de posts dos usuários
+	@GetMapping(value = "/{id}/posts")
+	public ResponseEntity<List<Post>> findPosts(@PathVariable String id){
+		User obj = userService.findById(id);
+		return ResponseEntity.ok().body(obj.getPosts());
 	}
 }
