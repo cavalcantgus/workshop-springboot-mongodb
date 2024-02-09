@@ -1,8 +1,11 @@
 package com.cavalcantgus.workshopmongo.domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 // Entidade Usuário
@@ -13,6 +16,10 @@ public class User {
 	private String id;
 	private String name;
 	private String email;
+	
+	// Contém o id e coleção do documento referenciado
+	@DBRef(lazy = true)
+	private List<Post> posts = new ArrayList<>();
 	
 	// Construtor padrão
 	public User() {}
@@ -48,6 +55,15 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
 
 	// Comparação de objetos com HashCode & Equals
 	@Override
@@ -66,5 +82,4 @@ public class User {
 		User other = (User) obj;
 		return Objects.equals(id, other.id);
 	}
-	
 }
