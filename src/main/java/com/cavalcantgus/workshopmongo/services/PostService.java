@@ -26,6 +26,6 @@ public class PostService {
 	
 	// Retorna um post a partir de um título chave
 	public List<Post> findByTitle(String text){
-		return postRepository.findByTitleContaining(text);
+		return postRepository.findByTitle(text);
 	}
 }
