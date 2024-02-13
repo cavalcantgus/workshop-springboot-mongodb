@@ -1,5 +1,6 @@
 package com.cavalcantgus.workshopmongo.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +23,9 @@ public class PostService {
 		Optional<Post> obj = postRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto Não encontrado"));
 	}	
+	
+	// Retorna um post a partir de um título chave
+	public List<Post> findByTitle(String text){
+		return postRepository.findByTitleContaining(text);
+	}
 }
