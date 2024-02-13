@@ -1,5 +1,6 @@
 package com.cavalcantgus.workshopmongo.services;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,5 +28,11 @@ public class PostService {
 	// Retorna um post a partir de um título chave
 	public List<Post> findByTitle(String text){
 		return postRepository.findByTitle(text);
+	}
+	
+	// Retorna um post a partir de vários critérios de busca
+	public List<Post> fullSearch(String text, Date minDate, Date maxDate){
+		maxDate = new Date(maxDate.getTime() + 24*60*60*1000); 
+		return postRepository.fullSearch(text, minDate, maxDate);
 	}
 }
