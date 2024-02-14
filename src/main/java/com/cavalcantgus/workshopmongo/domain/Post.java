@@ -74,6 +74,7 @@ public class Post {
 
 	public void setAuthor(AuthorDTO author) {
 		this.author = author;
+	
 	}
 	
 	public List<CommentDTO> getComments() {
