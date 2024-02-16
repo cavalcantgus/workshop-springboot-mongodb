@@ -28,8 +28,8 @@ Pré-requisitos: Java 17
 # clonar repositório
 git clone https://github.com/cavalcantgus/workshop-springboot-mongodb.git
 
-# entrar na pasta do projeto back end
-cd backend
+# entrar na pasta do projeto spring boot
+cd workshop-springboot-mongodb
 
 # executar o projeto
 ./mvnw spring-boot:run
