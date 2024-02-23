@@ -5,8 +5,8 @@
 
 SpringPost é uma aplicação Back-end desenvolvida durante o módulo 24 (**Projeto Web-Services com Spring Boot e banco MongoDB**) pelo curso de Java Completo Orientado a Objetos na [Udemy](https://www.udemy.com/course/java-curso-completo/ "Site do curso").
 
-Esta API é um sistema de gestão de usuários e posts, com armazenamento em banco de dados não relacional, permitindo a criação de coleções de usários e posts com comentários integrados.
-O modelo de domínio foi desenvolvido para que em cada post publicado contesse comentários aninhados, e em cada usuário persistido no banco de dados, uma referência para seus posts.
+Esta API é um sistema de gestão de usuários e posts, com armazenamento em banco de dados não relacional, permitindo a criação de coleções de usuários e posts com comentários integrados.
+O modelo de domínio foi desenvolvido para que em cada post publicado contivesse comentários aninhados, e em cada usuário persistido no banco de dados, uma referência para seus posts.
 
 ## Modelo de domínio
 ![Modelo](https://github.com/cavalcantgus/workshop-springboot-mongodb/assets/142106838/86c53e2c-b843-4865-8a94-40a1fbb820b2)
